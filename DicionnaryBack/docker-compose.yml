@@ -1,0 +1,19 @@
+version: "2"
+services:
+  app:
+    build: .
+    image: ayoubfarid80/dictionnary-back
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    container_name: app2
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo
+networks:
+  network1:
+    name: dictionnary-network
+    external: false
